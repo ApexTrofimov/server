@@ -1,0 +1,29 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.5.RELEASE'
+    id 'java'
+    id 'org.liquibase.gradle' version '2.0.1'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'ru.trofimov'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile 'com.h2database:h2'
+    compile 'org.liquibase:liquibase-core:3.6.3'
+
+
+    compileOnly 'org.projectlombok:lombok:1.18.8'
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testCompile 'com.h2database:h2'
+}

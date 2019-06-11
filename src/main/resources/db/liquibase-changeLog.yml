@@ -1,0 +1,84 @@
+databaseChangeLog:
+  - changeSet:
+      id: createTable-contents
+      author: Andrey Trofimov
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  name: id
+                  type: varchar(255)
+              - column:
+                  name: title
+                  type: varchar(255)
+            remarks: Contents table
+            schemaName: public
+            tableName: contents
+  - changeSet:
+      id: createTable-users
+      author: Andrey Trofimov
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  name: id
+                  type: varchar(255)
+              - column:
+                  name: login
+                  type: varchar(255)
+            remarks: Users table
+            schemaName: public
+            tableName: users
+  - changeSet:
+      id: createTable-users-contents
+      author: Andrey Trofimov
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  name: user_id
+                  type: varchar(255)
+              - column:
+                  name: content_id
+                  type: varchar(255)
+            remarks: users_contents table
+            schemaName: public
+            tableName: users_contents
+  - changeSet:
+      id: insert-users
+      author: Andrey Trofimov
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: login
+                  value: user
+            schemaName: public
+            tableName: users
+  - changeSet:
+      id: insert-contents
+      author: Andrey Trofimov
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: title
+                  value: Ringtone
+            schemaName: public
+            tableName: contents
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: title
+                  value: Weather
+            schemaName: public
+            tableName: contents
